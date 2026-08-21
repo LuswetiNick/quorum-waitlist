@@ -1,0 +1,44 @@
+---
+import ChevronDown from "@lucide/astro/icons/chevron-down";
+
+const outputItems = [
+  "A complete, searchable transcript",
+  "A summary with the context intact",
+  "Technical decisions with rationale",
+  "Action items, owners, and due dates",
+];
+---
+
+<section id="output" class="border-t border-border py-20 md:py-28">
+  <div class="grid gap-12 md:grid-cols-2 md:items-center">
+    <div>
+      <p class="font-mono text-xs font-medium text-accent">03 / THE HANDOFF</p>
+      <h2
+        class="mt-4 max-w-lg text-3xl font-semibold tracking-tight sm:text-4xl"
+      >
+        The meeting ends.<br />The work keeps moving.
+      </h2>
+      <p class="mt-5 max-w-md leading-7 text-muted-foreground">
+        Quorum turns the messy middle of a conversation into a clean record your
+        team can trust.
+      </p>
+    </div>
+
+    <div class="space-y-2">
+      {
+        outputItems.map((item, index) => (
+          <div class="flex items-center gap-4 border-b border-border py-4">
+            <span class="font-mono text-xs text-muted-foreground">
+              0{index + 1}
+            </span>
+            <span class="text-sm font-medium">{item}</span>
+            <ChevronDown
+              size={16}
+              class="ml-auto -rotate-90 text-muted-foreground"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

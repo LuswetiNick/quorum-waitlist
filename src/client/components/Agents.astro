@@ -1,0 +1,65 @@
+---
+const agentCards = [
+  {
+    name: "Architect",
+    role: "System design",
+    colorClass: "bg-accent text-accent-foreground",
+    glyph: "A",
+    detail: "Maps constraints, trade-offs, and interfaces.",
+  },
+  {
+    name: "Debugger",
+    role: "Root cause",
+    colorClass: "bg-coral text-coral-foreground",
+    glyph: "D",
+    detail: "Follows the evidence until the issue is clear.",
+  },
+  {
+    name: "Reviewer",
+    role: "Code quality",
+    colorClass: "bg-sky text-sky-foreground",
+    glyph: "R",
+    detail: "Catches risk before it reaches production.",
+  },
+];
+---
+
+<section id="agents" class="border-t border-border py-20 md:py-28">
+  <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+    <div>
+      <p class="font-mono text-xs font-medium text-accent">02 / YOUR CREW</p>
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+        Specialists, on call.
+      </h2>
+    </div>
+    <p class="max-w-sm text-sm leading-6 text-muted-foreground">
+      Not one assistant trying to do everything. A focused set of engineering
+      minds for the work in front of you.
+    </p>
+  </div>
+
+  <div class="mt-12 grid gap-4 md:grid-cols-3">
+    {
+      agentCards.map((agent) => (
+        <article class="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary">
+          <div
+            class={`flex size-11 items-center justify-center rounded-lg ${agent.colorClass} text-lg font-semibold`}
+          >
+            {agent.glyph}
+          </div>
+          <p class="mt-8 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+            {agent.role}
+          </p>
+          <h3 class="mt-2 text-xl font-medium">{agent.name}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted-foreground">
+            {agent.detail}
+          </p>
+          <div class="mt-6 flex items-center gap-2 font-mono text-[11px] text-accent">
+            <span class="size-1.5 rounded-full bg-accent" />
+            READY TO JOIN
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
